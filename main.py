@@ -1,6 +1,7 @@
 import pygame
 import random
 
+test = "testing git"
 
 class Game:
     def __init__(self):

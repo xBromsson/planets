@@ -1,5 +1,6 @@
 import pygame
 import random
+import math
 
 test = "testing git"
 
@@ -100,7 +101,10 @@ class Asteroid:
             distance = 50
         elif distance < 25:
             distance = 25
-        grav_m = (graviton * self.mass * earth.mass) / (distance * distance)
+
+        
+        #grav_m = math.sqrt((graviton * earth.mass) / (distance))
+        grav_m = (graviton * earth.mass) / (distance * distance)
         gravity = gravity.normalize()
         gravity = gravity * grav_m
 
@@ -118,7 +122,7 @@ class Asteroid:
 g = Game()
 earth = Planet(g.width/2, g.height/2)
 pobjects = Objects()
-graviton = 2
+graviton = 5
 
 while g.run:
 

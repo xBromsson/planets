@@ -9,4 +9,4 @@ A basic gravity simulation built using python and pygame.
 
 After you clone this repo and install the prerequisites you can run main.py and try it out.
 
-Or you can try it from the browser on my Replit: https://replit.com/@xbromsson/planets?v=1 (it runs a little slow)
+Or you can try it from the browser on my Replit: https://replit.com/@xbromsson/planets?v=1

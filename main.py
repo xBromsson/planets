@@ -185,12 +185,14 @@ def setPlanets(num_planets):
 def arePlanetsTooClose(planets, spread_distance):
     for planet_a, planet_b in itertools.combinations(planets, 2):
         average_mass = (planet_a.mass + planet_b.mass) / 2
-        if planet_a.pos.distance_to(planet_b.pos) < spread_distance + average_mass:
+        if planet_a.pos.distance_to(planet_b.pos) < spread_distance + (
+            average_mass / 2
+        ):
             return True
 
 
 g = Game()
-num_planets = 6
+num_planets = 10
 planets = setPlanets(num_planets)
 pobjects = Objects()
 graviton = 2

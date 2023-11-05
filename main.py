@@ -3,6 +3,7 @@ import random
 
 test = "testing git"
 
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -25,36 +26,41 @@ class Game:
             if event.type == pygame.MOUSEMOTION:
                 self.mouse = pygame.mouse.get_pos()
 
-            if event.type == pygame.MOUSEBUTTONDOWN and event.button ==  1:
+            if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 self.start_point = pygame.Vector2(pygame.mouse.get_pos())
                 self.spawning = True
-                    
+
                 print(self.start_point)
-                
+
             if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                 self.spawning = False
                 end_point = pygame.mouse.get_pos()
-                power = (self.start_point - end_point)/15
-                pobjects.objects.append(Asteroid(self.start_point[0], self.start_point[1], power[0], power[1]))
-                
-                pass
+                power = (self.start_point - end_point) / 15
+                pobjects.objects.append(
+                    Asteroid(
+                        self.start_point[0], self.start_point[1], power[0], power[1]
+                    )
+                )
 
+                pass
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
                     earth.mass += 5
-                    print(earth.mass) 
+                    print(earth.mass)
                 if event.key == pygame.K_s:
                     earth.mass -= 5
-                    print(earth.mass) 
-      
+                    print(earth.mass)
+
     def update(self):
         pygame.display.update()
 
     def render(self):
         if self.spawning == True:
             pygame.draw.circle(g.window, "blue", self.start_point, 10, 0)
-            pygame.draw.line(g.window, "blue", self.start_point, pygame.mouse.get_pos(), 2)
+            pygame.draw.line(
+                g.window, "blue", self.start_point, pygame.mouse.get_pos(), 2
+            )
 
 
 class Objects:
@@ -73,27 +79,30 @@ class Objects:
 
 
 class Planet:
-    def __init__(self, x, y):
+    def __init__(self, x, y, color="grey", mass=100):
+        self.x = x
+        self.y = y
         self.pos = pygame.Vector2(x, y)
-        self.mass = 100
+        self.mass = mass
         self.velocity = 0
+        self.color = color
 
     def update(self):
-        self.pos = pygame.Vector2(g.width/2, g.height/2)
+        self.pos = pygame.Vector2(self.x, self.y)
 
     def render(self):
-        pygame.draw.circle(g.window, "grey", self.pos, 50, 0)
+        pygame.draw.circle(g.window, self.color, self.pos, 50, 0)
+
 
 class Asteroid:
-    def __init__(self, x, y, q=0, w=0):
-        self.mass = 10
+    def __init__(self, x, y, q=0, w=0, mass=10):
+        self.mass = mass
         self.pos = pygame.Vector2(x, y)
-        self.velocity = pygame.Vector2(q ,w)
+        self.velocity = pygame.Vector2(q, w)
         self.acceleration = pygame.Vector2(0, 0)
 
     def update(self):
-
-        gravity = earth.pos-self.pos
+        gravity = earth.pos - self.pos
         distance = gravity.magnitude()
 
         if distance > 50:
@@ -104,33 +113,36 @@ class Asteroid:
         gravity = gravity.normalize()
         gravity = gravity * grav_m
 
-
-        self.acceleration += gravity/self.mass
+        self.acceleration += gravity / self.mass
         self.velocity += self.acceleration
         self.pos += self.velocity
-        self.acceleration = self.acceleration*0
-           
+        self.acceleration = self.acceleration * 0
+
     def render(self):
         pygame.draw.circle(g.window, "grey", self.pos, self.mass, 0)
-        pygame.draw.line(g.window, "green", self.pos, self.pos+self.velocity*5, 2)
+        pygame.draw.line(g.window, "green", self.pos, self.pos + self.velocity * 5, 2)
 
 
 g = Game()
-earth = Planet(g.width/2, g.height/2)
+earths = [
+    Planet(g.width / 4, g.height / 2, "blue", mass=150),
+    Planet(g.width / 1.25, g.height / 2, "red", mass=75),
+    Planet(g.width / 2, g.height / 2),
+]
 pobjects = Objects()
 graviton = 2
 
 while g.run:
-
     g.input()
-    g.window.fill('black')
+    g.window.fill("black")
     g.render()
 
-    earth.update()
-    earth.render()
+    for earth in earths:
+        earth.update()
+        earth.render()
 
-    pobjects.update()
-    pobjects.render()
+        pobjects.update()
+        pobjects.render()
 
     g.update()
     g.clock.tick(60)

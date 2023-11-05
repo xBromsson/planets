@@ -20,6 +20,7 @@ class Game:
         self.mouse = pygame.mouse.get_pos()
         self.start_point = pygame.Vector2()
         self.spawning = False
+        self.collisions = True
 
     def input(self):
         self.keys = pygame.key.get_pressed()
@@ -58,6 +59,8 @@ class Game:
                 if event.key == pygame.K_r:
                     g.run = False
                     pobjects.objects = []
+                if event.key == pygame.K_c:
+                    self.collisions = not self.collisions
 
     def update(self):
         font_size = 40
@@ -151,9 +154,9 @@ class Asteroid:
 
         self.velocity += self.acceleration
         self.pos += self.velocity
-        if (planet.pos - self.pos - self.velocity).magnitude() < (planet.mass / 2) + (
-            self.mass / 2
-        ):
+        if g.collisions and (planet.pos - self.pos - self.velocity).magnitude() < (
+            planet.mass / 2
+        ) + (self.mass / 2):
             self.setBounceAngle(planet)
 
         self.acceleration = self.acceleration * 0

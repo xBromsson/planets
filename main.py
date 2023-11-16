@@ -1,6 +1,7 @@
 import pygame
 import random
 import itertools
+import math
 
 SPREAD_COMPRESSOR = 100
 
@@ -19,6 +20,7 @@ class Game:
         self.mouse = pygame.mouse.get_pos()
         self.start_point = pygame.Vector2()
         self.spawning = False
+        self.collisions = True
 
     def input(self):
         self.keys = pygame.key.get_pressed()
@@ -57,6 +59,8 @@ class Game:
                 if event.key == pygame.K_r:
                     g.run = False
                     pobjects.objects = []
+                if event.key == pygame.K_c:
+                    self.collisions = not self.collisions
 
     def update(self):
         font_size = 40
@@ -127,6 +131,8 @@ class Planet:
 
 class Asteroid:
     def __init__(self, x, y, q=0, w=0, mass=10):
+        self.q = q
+        self.w = w
         self.mass = mass
         self.pos = pygame.Vector2(x, y)
         self.velocity = pygame.Vector2(q, w)
@@ -145,13 +151,36 @@ class Asteroid:
         gravity = gravity * grav_m
 
         self.acceleration += gravity / self.mass
+
         self.velocity += self.acceleration
         self.pos += self.velocity
+        if g.collisions and (planet.pos - self.pos - self.velocity).magnitude() < (
+            planet.mass / 2
+        ) + (self.mass / 2):
+            self.setBounceAngle(planet)
+
         self.acceleration = self.acceleration * 0
 
     def render(self):
         pygame.draw.circle(g.window, "grey", self.pos, self.mass, 0)
         pygame.draw.line(g.window, "green", self.pos, self.pos + self.velocity * 5, 2)
+
+    def setBounceAngle(self, planet):
+        # calculate angle of incidence
+        angle_of_incidence = (self.pos - planet.pos).angle_to(pygame.Vector2(1, 0))
+        if self.pos.y < planet.pos.y:
+            angle_of_incidence = -angle_of_incidence
+
+        # calculate angle of reflection
+        angle_of_reflection = self.velocity.reflect(pygame.Vector2(0, 1)).angle_to(
+            pygame.Vector2(1, 0)
+        )
+        if self.velocity.y < 0 or self.velocity.x < 0:
+            angle_of_reflection = -angle_of_reflection
+
+        # calculate reflected angle
+        reflected_angle = angle_of_incidence - angle_of_reflection
+        self.velocity.rotate_ip(reflected_angle)
 
 
 def generateRandomPosition():
@@ -192,7 +221,7 @@ def arePlanetsTooClose(planets, spread_distance):
 
 
 g = Game()
-num_planets = 10
+num_planets = 2
 planets = setPlanets(num_planets)
 pobjects = Objects()
 graviton = 2

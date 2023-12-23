@@ -2,32 +2,56 @@
 
 Welcome to an Alchemize project. Alchemize Planets.
 
-## Code of Conduct
+### Example of A Contributor's Workflow
 
-Before contributing, please read our [Code of Conduct](LINK_TO_CODE_OF_CONDUCT). We expect all our contributors to follow it.
+1. **Fork the Repository** -> [How To](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   Forking creates a personal copy of the project in your GitHub account. This allows you to experiment and make changes without affecting the original repository.
+   </details>
 
-## Getting Started
+2. **Clone Your Fork** -> [How To](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   Cloning brings a copy of your forked repository onto your local machine. This enables you to work on the project files directly from your own computer.
+   </details><br>
 
-### High Level Example of Contribution Workflow
+3. **Set Up the Development Environment**
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   Setting up your development environment ensures that you have all the necessary tools and dependencies to run and contribute to the project effectively. It helps in maintaining consistency across different contributors.
+   </details>
 
-When contributing you will be working on a forked version of the project. Here is what your workflow might look like when contributing.
+4. **Browse the Linear Issues and Assign What You Want To Work On**
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   This step helps you find tasks that are suitable for your skills and interests. It also prevents duplication of work as you can see what others are working on.
+   </details>
 
-1. Fork the Repository <span title="This is the tooltip text">Why Tho?</span>
- -> How To
-2. Clone Your Fork -> How To
-3. **Set Up the Development Environment**: Follow the instructions in the `README.md` to set up your local environment. This will setup all the necesarry dependencies and libraries to work the project on your machine.
-4. Browse the Linear Issues and Assign What You Want To Work On
-5. Start Coding Your Solution
-6. Commit Your Changes
-7. Push Your Commits To Your Fork
-8. Submit Your Pull Request
+5. **Start Coding Your Solution**
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   This is where you apply your skills to solve a specific problem or add new features to the project. It's the core part of contributing to an open source project.
+   </details>
 
-### Prerequisites
+6. **Commit Your Changes**
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   Committing changes saves your modifications to your local repository. Each commit acts as a checkpoint, meaning if something goes wrong, you can revert to a previous commit.
+   </details>
 
-- A GitHub account
-- Basic understanding of Git and GitHub
-- Familiarity with [Linear](https://linear.app/) for task management
-    **Setup a free account HERE**
+7. **Push Your Commits To Your Fork** -> [How To](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository)
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   Pushing your commits to your fork on GitHub updates your remote repository with the changes you made locally. This keeps your online fork synchronized with your local work.
+   </details>
+
+8. **Submit Your Pull Request**
+   <details>
+   <summary><b>Why Tho?</b></summary>
+   A pull request is how you propose your changes to the original project. It allows the maintainers to review your contributions and discuss potential improvements before integrating them into the main project.
+   </details>
+
 
 ### Working On Linear Issues
 
@@ -67,6 +91,10 @@ Once you are inside of the Linear project 'Alchemize Planets" follow the steps b
 
 - All pull requests require at least one review before merging.
 - Maintainers will review and provide feedback if changes are needed.
+
+## Code of Conduct
+
+Before contributing, please read our [Code of Conduct](LINK_TO_CODE_OF_CONDUCT). We expect all our contributors to follow it.
 
 ## Community and Support
 

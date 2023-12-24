@@ -57,7 +57,7 @@ Once you are inside of the Linear project 'Alchemize Planets" follow the steps b
 1. Go to the [Pull Requests](https://github.com/xBromsson/planets/pulls) tab and click `New pull request`.
 2. Select your branch and describe your changes.
 3. Submit the pull request, linking the relevant issue.
-4. All pull request require at least one review. We will review and provide feedback if changes are needed.
+4. We will review and provide feedback if changes are needed. All pull request require at least one review.
 
 ## Community and Support
 

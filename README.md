@@ -57,10 +57,18 @@ _Do not currently have a package manager installed but intend to add tooling soo
 
 ## 💻 Installation / Setup
 
-1. Clone this repo to your machine:
+1. Install Python on your PC if you haven't already
+
+2. Clone the repo to your machine:
 
 ```
 git clone https://github.com/xBromsson/planets.git
+```
+
+3. Install Dependencies via pip
+
+```
+pip install -r requirements.txt
 ```
 
 <!-- 2. Install dependencies

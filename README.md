@@ -55,7 +55,7 @@ _Do not currently have a package manager installed but intend to add tooling soo
 
 &nbsp;<br>
 
-## 💻 Installation / Setup
+## 💻 Want to give it a try? Here is how:
 
 1. Install Python on your PC if you haven't already
 
@@ -95,30 +95,6 @@ This project is released into the public domain using The Unlicense - see the [L
 
 We welcome contributions to this project! Here's how you can help:
 
-1. **Fork the Repository**: Create a fork of this project to your GitHub account.
-
-2. **Clone the Fork**: Clone the fork to your local machine.
-
-   ```
-   git clone https://github.com/your-username/project-name.git
-   ```
-
-3. **Create a Branch**: Create a new branch to work on.
-
-   ```
-   git checkout -b my-new-feature
-   ```
-
-4. **Make Changes**: Make your changes or additions to the new branch.
-
-5. **Commit and Push**: Commit your changes to your own branch and push the work back up to your fork.
-
-   ```
-   git push origin my-new-feature
-   ```
-
-6. **Pull Request**: Open a pull request to propose your changes to the `main` branch.
-
-For more information on using GitHub, please refer to GitHub's [How To](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests).
+[How To Contribute](https://github.com/xBromsson/planets/blob/master/CONTRIBUTING.md)
 
 Thank you for your contributions!

@@ -60,7 +60,7 @@ _Do not currently have a package manager installed but intend to add tooling soo
 1. Clone this repo to your machine:
 
 ```
-git clone https://github.com/xBromsson/dnd-spells.git
+git clone https://github.com/xBromsson/planets.git
 ```
 
 <!-- 2. Install dependencies
